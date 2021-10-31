@@ -1,0 +1,7 @@
+.react-date-picker__wrapper {
+  border: 0;
+  overflow: hidden;
+}
+.react-date-picker__clear-button {
+  display: none;
+}

@@ -1,0 +1,13 @@
+@media only screen and (max-width: 768px) {
+  .main-gallery-image {
+    width: 100% !important;
+  }
+}
+.gallery-image:hover {
+  opacity: 0.7;
+}
+.gallery-image {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+}

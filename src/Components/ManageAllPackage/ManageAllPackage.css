@@ -1,0 +1,68 @@
+th,
+tr,
+td {
+  border-style: none;
+}
+.table {
+  border-collapse: separate;
+  border-spacing: 0px;
+}
+.name {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.action {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+.admin {
+  border-radius: 35px;
+}
+.table-responsive::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.table-responsive::-webkit-scrollbar:vertical {
+  width: 18px;
+}
+
+.table-responsive::-webkit-scrollbar:horizontal {
+  height: 18px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+  color: white;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: white;
+}
+@media only screen and (max-width: 768px) {
+  .table-responsive::-webkit-scrollbar {
+    -webkit-appearance: none;
+  }
+
+  .table-responsive::-webkit-scrollbar:vertical {
+    width: 18px;
+  }
+
+  .table-responsive::-webkit-scrollbar:horizontal {
+    height: 18px;
+  }
+
+  .table-responsive::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    color: white;
+  }
+
+  .table-responsive::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: white;
+  }
+}

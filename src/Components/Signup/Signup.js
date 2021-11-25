@@ -9,16 +9,12 @@ import Swal from "sweetalert2";
 const Signup = () => {
   const location = useLocation();
   const redirectURL = location.state?.from || "/";
+  const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const history = useHistory();
-  const {
-    handleSignup,
-    handleGoogleSignIn,
-    handleGithubSignIn,
-    setCurrentUser,
-  } = useAuth();
+  const { handleSignup, handleGoogleSignIn, handleGithubSignIn } = useAuth();
   const [signupError, setSignupError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -33,7 +29,11 @@ const Signup = () => {
     try {
       setSignupError("");
       setLoading(true);
-      await handleSignup(emailRef.current.value, passwordRef.current.value);
+      await handleSignup(
+        emailRef.current.value,
+        passwordRef.current.value,
+        nameRef.current.value
+      );
       setSignupError("");
       history.push(redirectURL);
     } catch (error) {
@@ -63,7 +63,6 @@ const Signup = () => {
                   onClick={() =>
                     handleGoogleSignIn()
                       .then((result) => {
-                        setCurrentUser(result.user);
                         history.push(redirectURL);
                       })
                       .catch((error) => {
@@ -76,7 +75,6 @@ const Signup = () => {
                   onClick={() =>
                     handleGithubSignIn()
                       .then((result) => {
-                        setCurrentUser(result.user);
                         history.push(redirectURL);
                       })
                       .catch((error) => {
@@ -93,7 +91,11 @@ const Signup = () => {
               <Form onSubmit={handleSubmit}>
                 <Form.Group id="name">
                   <Form.Label>Username</Form.Label>
-                  <Form.Control type="text" required></Form.Control>
+                  <Form.Control
+                    type="text"
+                    ref={nameRef}
+                    required
+                  ></Form.Control>
                 </Form.Group>
                 <Form.Group id="email">
                   <Form.Label>Email</Form.Label>

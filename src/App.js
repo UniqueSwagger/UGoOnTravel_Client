@@ -17,6 +17,8 @@ import AddPackage from "./Components/AddPackage/AddPackage";
 import AboutUs from "./Components/AboutUs/AboutUs";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import Footer from "./Components/Footer/Footer";
+import MakeAdmin from "./Components/MakeAdmin/MakeAdmin";
+import AdminRoute from "./AdminRoute/AdminRoute";
 
 function App() {
   return (
@@ -40,15 +42,18 @@ function App() {
             <Route path="/contact-us">
               <ContactUs />
             </Route>
-            <PrivateRoute path="/registeredBooking/:emailId">
+            <PrivateRoute path="/registeredBooking/myBookings">
               <MyPackages />
             </PrivateRoute>
-            <PrivateRoute path="/manageAllPackage">
+            <AdminRoute path="/manageAllPackage">
               <ManageAllPackage />
-            </PrivateRoute>
-            <PrivateRoute path="/addPackage">
+            </AdminRoute>
+            <AdminRoute path="/addPackage">
               <AddPackage />
-            </PrivateRoute>
+            </AdminRoute>
+            <AdminRoute path="/makeAdmin">
+              <MakeAdmin />
+            </AdminRoute>
             <PrivateRoute path="/packages/:id">
               <SingleTourPackage />
             </PrivateRoute>

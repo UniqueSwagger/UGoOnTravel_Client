@@ -175,9 +175,9 @@ const SingleTourPackageInfo = (props) => {
             <Form.Group className="mb-3">
               <Form.Label className="fs-5">Full Name</Form.Label>
               <Form.Control
-                required
                 defaultValue={displayName}
                 type="text"
+                disabled
                 className="fs-5"
                 placeholder="Your Full Name"
                 {...register("name")}
@@ -186,7 +186,7 @@ const SingleTourPackageInfo = (props) => {
             <Form.Group className="mb-3">
               <Form.Label className="fs-5">Email address</Form.Label>
               <Form.Control
-                required
+                disabled
                 defaultValue={email}
                 type="email"
                 className="fs-5"

@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Navbar, Button } from "react-bootstrap";
+import { Nav, Navbar, Button, NavDropdown } from "react-bootstrap";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import logo from "../../images/logo.png";
 import useAuth from "../../hooks/useAuth";
@@ -10,6 +10,7 @@ const Navigation = () => {
   const {
     currentUser: { displayName, photoURL, email },
     handleLogout,
+    admin,
   } = useAuth();
   return (
     <Navbar
@@ -43,26 +44,39 @@ const Navigation = () => {
               Contact Us
             </NavLink>
 
+            {admin && (
+              <NavDropdown title="Admin" id="collasible-nav-dropdown">
+                <NavDropdown.Item>
+                  <NavLink className="nav-link" to="/addPackage">
+                    Add Package
+                  </NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink className="nav-link" to="/manageAllPackage">
+                    Manage All Package
+                  </NavLink>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <NavLink className="nav-link" to="/makeAdmin">
+                    Make Admin
+                  </NavLink>
+                </NavDropdown.Item>
+              </NavDropdown>
+            )}
+
             {email && (
-              <>
-                <NavLink
-                  className="nav-link  me-2 "
-                  to={`/registeredBooking/${email}`}
-                >
-                  My Packages
-                </NavLink>
-                <NavLink className="nav-link  me-2 " to="/addPackage">
-                  Add Package
-                </NavLink>
-                <NavLink className="nav-link  me-2 " to="/manageAllPackage">
-                  Manage All Package
-                </NavLink>
-              </>
+              <NavLink
+                className="nav-link  me-2 "
+                to="/registeredBooking/myBookings"
+              >
+                My Packages
+              </NavLink>
             )}
 
             {photoURL && (
               <div>
                 <img
+                  referrerPolicy="no-referrer"
                   style={{ width: "40px", borderRadius: "50%" }}
                   src={photoURL}
                   loading="lazy"

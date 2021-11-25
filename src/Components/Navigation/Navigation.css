@@ -3,3 +3,11 @@
     width: 52% !important;
   }
 }
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .dropdown-menu {
+    background-color: rgb(17 24 39);
+  }
+}
+.dropdown-item:hover {
+  background-color: rgb(17 24 39);
+}

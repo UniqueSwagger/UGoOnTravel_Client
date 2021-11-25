@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router";
 import axios from "axios";
 import { Container, Row, Button, Badge } from "react-bootstrap";
 import Loader from "../Loader/Loader";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 const MyPackages = () => {
   window.scrollTo(0, 40);
-  const { emailId } = useParams();
+  const {
+    currentUser: { email },
+  } = useAuth();
   const [myPackages, setMyPackages] = useState(null);
 
   //setting the user packages
   useEffect(() => {
     axios
-      .get(`https://grisly-werewolf-76792.herokuapp.com/bookingInfo/${emailId}`)
+      .get(`https://grisly-werewolf-76792.herokuapp.com/bookingInfo/${email}`)
       .then((res) => setMyPackages(res.data));
-  }, [emailId]);
+  }, [email]);
 
   //confirming deletion
   const handleCancel = (id) => {

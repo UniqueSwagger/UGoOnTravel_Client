@@ -11,12 +11,7 @@ const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const history = useHistory();
-  const {
-    handleSignIn,
-    handleGoogleSignIn,
-    handleGithubSignIn,
-    setCurrentUser,
-  } = useAuth();
+  const { handleSignIn, handleGoogleSignIn, handleGithubSignIn } = useAuth();
   const [loginError, setLoginError] = useState("");
   const [loading, setLoading] = useState(false);
   // handle submit
@@ -57,10 +52,10 @@ const Login = () => {
                   onClick={() =>
                     handleGoogleSignIn()
                       .then((result) => {
-                        setCurrentUser(result.user);
                         history.push(redirectURL);
                       })
                       .catch((error) => {
+                        console.log(error);
                         setLoginError(error.message);
                       })
                   }
@@ -70,7 +65,6 @@ const Login = () => {
                   onClick={() =>
                     handleGithubSignIn()
                       .then((result) => {
-                        setCurrentUser(result.user);
                         history.push(redirectURL);
                       })
                       .catch((error) => {

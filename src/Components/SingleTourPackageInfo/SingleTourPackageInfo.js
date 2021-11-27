@@ -70,6 +70,8 @@ const SingleTourPackageInfo = (props) => {
   const onSubmit = (data) => {
     setLoading(true);
     // giving some more info
+    data.email = email;
+    data.name = displayName;
     data.pricePerNight = pricePerNight;
     data.total = grandTotal;
     data.fromDate = fromDate;
@@ -99,7 +101,7 @@ const SingleTourPackageInfo = (props) => {
         .post("https://grisly-werewolf-76792.herokuapp.com/booking", data)
         .then((res) => {
           if (res.data.insertedId) {
-            history.push(`/registeredBooking/${data.email}`);
+            history.push(`/registeredBooking/myBookings`);
             setLoading(false);
           }
         });

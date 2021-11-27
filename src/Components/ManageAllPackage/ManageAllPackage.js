@@ -8,12 +8,13 @@ import "./ManageAllPackage.css";
 const ManageAllPackage = () => {
   const [registeredBookings, setRegisteredBookings] = useState(null);
   const [updated, setUpdated] = useState(false);
+  const [updatedBooking, setUpdatedBooking] = useState(false);
   //getting all booking info
   useEffect(() => {
     axios
       .get("https://grisly-werewolf-76792.herokuapp.com/bookingInfo")
       .then((res) => setRegisteredBookings(res.data));
-  }, [updated]);
+  }, [updated, updatedBooking]);
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure you wanna delete it?",
@@ -62,6 +63,7 @@ const ManageAllPackage = () => {
           .then((res) => {
             if (res.data.modifiedCount) {
               setUpdated(true);
+              setUpdatedBooking(res.data.modifiedCount);
             }
           });
       }

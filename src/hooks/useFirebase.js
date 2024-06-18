@@ -97,7 +97,7 @@ const useFirebase = () => {
     const user = { email, displayName };
     axios({
       method: httpMethod,
-      url: "https://grisly-werewolf-76792.herokuapp.com/users",
+      url: "https://ug-o-on-travel-server.vercel.app/users",
       data: user,
     });
   };
@@ -108,7 +108,7 @@ const useFirebase = () => {
     setLoading(true);
     axios
       .get(
-        `https://grisly-werewolf-76792.herokuapp.com/users/${currentUser?.email}`
+        `https://ug-o-on-travel-server.vercel.app/users/${currentUser?.email}`
       )
       .then((res) => {
         setAdmin(res.data.admin);

@@ -9,7 +9,7 @@ const MakeAdmin = () => {
   const onSubmit = (data) => {
     setLoading(true);
     axios
-      .put("https://grisly-werewolf-76792.herokuapp.com/users/admin", data)
+      .put("https://ug-o-on-travel-server.vercel.app/users/admin", data)
       .then((res) => {
         if (res.data.modifiedCount) {
           Swal.fire(

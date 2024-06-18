@@ -11,7 +11,7 @@ const TourPackage = () => {
   const [places, setPlaces] = useState([]);
   useEffect(() => {
     axios
-      .get("https://grisly-werewolf-76792.herokuapp.com/packages")
+      .get("https://ug-o-on-travel-server.vercel.app/packages")
       .then((res) => setPlaces(res.data));
   }, [places]);
   const handleBookNow = (id) => {

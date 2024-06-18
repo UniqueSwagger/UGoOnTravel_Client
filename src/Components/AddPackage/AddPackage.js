@@ -64,7 +64,7 @@ const AddPackage = () => {
         galleryImage5,
       ];
       axios
-        .post("https://grisly-werewolf-76792.herokuapp.com/newPackage", data)
+        .post("https://ug-o-on-travel-server.vercel.app/newPackage", data)
         .then(() => setLoading(false))
         .then(() => {
           Swal.fire(

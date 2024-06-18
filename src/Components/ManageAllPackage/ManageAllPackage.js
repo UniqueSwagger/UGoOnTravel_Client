@@ -12,7 +12,7 @@ const ManageAllPackage = () => {
   //getting all booking info
   useEffect(() => {
     axios
-      .get("https://grisly-werewolf-76792.herokuapp.com/bookingInfo")
+      .get("https://ug-o-on-travel-server.vercel.app/bookingInfo")
       .then((res) => setRegisteredBookings(res.data));
   }, [updated, updatedBooking]);
   const handleDelete = (id) => {
@@ -29,7 +29,7 @@ const ManageAllPackage = () => {
         Swal.fire("deleted!", "Successfully deleted this booking", "success");
         axios
           .delete(
-            `https://grisly-werewolf-76792.herokuapp.com/registeredBooking/${id}`
+            `https://ug-o-on-travel-server.vercel.app/registeredBooking/${id}`
           )
           .then((res) => {
             if (res.data.deletedCount) {
@@ -57,7 +57,7 @@ const ManageAllPackage = () => {
         Swal.fire("Updated!", "Successfully updated booking status", "success");
         axios
           .put(
-            `https://grisly-werewolf-76792.herokuapp.com/registeredBooking/${id}`,
+            `https://ug-o-on-travel-server.vercel.app/registeredBooking/${id}`,
             { status: "approved" }
           )
           .then((res) => {

@@ -51,7 +51,7 @@ const Login = () => {
                 <i
                   onClick={() =>
                     handleGoogleSignIn()
-                      .then((result) => {
+                      .then(() => {
                         history.push(redirectURL);
                       })
                       .catch((error) => {
@@ -64,7 +64,7 @@ const Login = () => {
                 <i
                   onClick={() =>
                     handleGithubSignIn()
-                      .then((result) => {
+                      .then(() => {
                         history.push(redirectURL);
                       })
                       .catch((error) => {

@@ -62,7 +62,7 @@ const Signup = () => {
                 <i
                   onClick={() =>
                     handleGoogleSignIn()
-                      .then((result) => {
+                      .then(() => {
                         history.push(redirectURL);
                       })
                       .catch((error) => {

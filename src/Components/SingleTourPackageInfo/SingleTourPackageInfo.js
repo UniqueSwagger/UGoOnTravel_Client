@@ -45,7 +45,7 @@ const SingleTourPackageInfo = (props) => {
   //getting all booking info of the user
   useEffect(() => {
     axios
-      .get(`https://grisly-werewolf-76792.herokuapp.com/bookingInfo/${email}`)
+      .get(`https://ug-o-on-travel-server.vercel.app/bookingInfo/${email}`)
       .then((res) => setUserRegisteredBookings(res.data));
   }, [email]);
 
@@ -98,7 +98,7 @@ const SingleTourPackageInfo = (props) => {
     } else {
       setError("");
       axios
-        .post("https://grisly-werewolf-76792.herokuapp.com/booking", data)
+        .post("https://ug-o-on-travel-server.vercel.app/booking", data)
         .then((res) => {
           if (res.data.insertedId) {
             history.push(`/registeredBooking/myBookings`);

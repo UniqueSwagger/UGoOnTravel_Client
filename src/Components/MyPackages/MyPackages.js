@@ -14,7 +14,7 @@ const MyPackages = () => {
   //setting the user packages
   useEffect(() => {
     axios
-      .get(`https://grisly-werewolf-76792.herokuapp.com/bookingInfo/${email}`)
+      .get(`https://ug-o-on-travel-server.vercel.app/bookingInfo/${email}`)
       .then((res) => setMyPackages(res.data));
   }, [email]);
 
@@ -33,7 +33,7 @@ const MyPackages = () => {
         Swal.fire("Cancelled!", "Your booking has been cancelled.", "success");
         axios
           .delete(
-            `https://grisly-werewolf-76792.herokuapp.com/registeredBooking/${id}`
+            `https://ug-o-on-travel-server.vercel.app/registeredBooking/${id}`
           )
           .then((res) => {
             if (res.data.deletedCount) {

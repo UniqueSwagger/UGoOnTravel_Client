@@ -14,7 +14,7 @@ const SingleTourPackage = () => {
   //getting the particular package
   useEffect(() => {
     axios
-      .get(`https://grisly-werewolf-76792.herokuapp.com/packages/${id}`)
+      .get(`https://ug-o-on-travel-server.vercel.app/packages/${id}`)
       .then((res) => setParticularPackage(res.data));
   }, [id]);
   const { accommodation, galleryImages } = particularPackage;

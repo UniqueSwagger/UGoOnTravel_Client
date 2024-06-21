@@ -10,21 +10,21 @@ const ContactUs = () => {
             <i className="fas fa-map-marker-alt"></i>
           </h2>
           <h3>Address</h3>
-          <p className="text-muted fs-4">115/1 Arambag,Moulvibazar</p>
+          <p className=" fs-4">115/1 Arambag,Moulvibazar</p>
         </div>
         <div className="col-lg-4 shadow  p-5 ">
           <h2>
             <i className="fas fa-envelope-square"></i>
           </h2>
           <h3>Email </h3>
-          <p className="text-muted fs-4">rahmanmahi02@gmail.com</p>
+          <p className=" fs-4">rahmanmahi02@gmail.com</p>
         </div>
         <div className="col-lg-4 shadow  p-5 ">
           <h2>
             <i className="fas fa-phone"></i>
           </h2>
           <h3>Phone</h3>
-          <p className="text-muted fs-4">01731248533</p>
+          <p className=" fs-4">01731248533</p>
         </div>
       </div>
       <div>

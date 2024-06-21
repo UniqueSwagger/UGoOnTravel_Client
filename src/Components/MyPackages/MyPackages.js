@@ -14,7 +14,9 @@ const MyPackages = () => {
   //setting the user packages
   useEffect(() => {
     axios
-      .get(`https://ug-o-on-travel-server.vercel.app/bookingInfo/${email}`)
+      .get(`https://ug-o-on-travel-server.vercel.app/bookingInfo/${email}`,{
+        timeout: 5000, 
+      })
       .then((res) => setMyPackages(res.data));
   }, [email]);
 
@@ -84,7 +86,7 @@ const MyPackages = () => {
                           src={bannerImage}
                           alt={accommodation}
                         />
-                        <p className="text-muted my-2">
+                        <p className=" my-2">
                           <span className="fs-5">${pricePerNight}</span> / night
                         </p>
                         <h4>Total : ${total}</h4>
@@ -100,7 +102,7 @@ const MyPackages = () => {
                             approved
                           </Badge>
                         )}
-                        <p className="text-muted">{shortDescription}</p>
+                        <p className="">{shortDescription}</p>
                         <h6>
                           {fromDate} - {toDate}
                         </h6>

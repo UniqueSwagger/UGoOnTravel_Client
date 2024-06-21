@@ -10,7 +10,7 @@ const AboutUs = () => {
       <div className="row align-items-center mx-4 my-5 py-5">
         <div className="col-lg-6 col-12 ">
           <h2 className="display-5">👋 About Us.</h2>
-          <p className="text-muted fs-4">
+          <p className=" fs-4">
             No matter who you are, or where you are going, our travel brands
             help every type of traveler not only find the trip that’s right for
             them, but get the best value every time.
@@ -22,7 +22,7 @@ const AboutUs = () => {
       </div>
       <div className="text-center my-5 ">
         <h2>⛱ Founder</h2>
-        <p className="text-muted fs-4">Our honorable founders</p>
+        <p className=" fs-4">Our honorable founders</p>
       </div>
       <div className="d-flex  align-items-center justify-content-around">
         <div className="founder" style={{ width: "20%" }}>
@@ -33,7 +33,7 @@ const AboutUs = () => {
             alt="images"
           />
           <h3 className="my-2">S Rahman</h3>
-          <p className="text-muted fs-5">Co-founder and Chief Executive</p>
+          <p className=" fs-5">Co-founder and Chief Executive</p>
         </div>
         <div className="founder" style={{ width: "20%" }}>
           <img
@@ -43,7 +43,7 @@ const AboutUs = () => {
             alt="images"
           />
           <h3 className="my-2">Mahmudur Rahman</h3>
-          <p className="text-muted fs-5">Co-founder and Chairmen</p>
+          <p className=" fs-5">Co-founder and Chairmen</p>
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ const NewsLetter = () => {
       <div className="row align-items-center">
         <div className="col-lg-6">
           <h2>Join our newsletter 🎉</h2>
-          <p style={{ width: "90%" }} className="my-4 text-muted fs-4 ">
+          <p style={{ width: "90%" }} className="my-4  fs-4 ">
             Read and share new perspectives on just about any topic. Everyone’s
             welcome.
           </p>

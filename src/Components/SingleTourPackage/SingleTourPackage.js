@@ -14,7 +14,9 @@ const SingleTourPackage = () => {
   //getting the particular package
   useEffect(() => {
     axios
-      .get(`https://ug-o-on-travel-server.vercel.app/packages/${id}`)
+      .get(`https://ug-o-on-travel-server.vercel.app/packages/${id}`,{
+        timeout: 5000, 
+      })
       .then((res) => setParticularPackage(res.data));
   }, [id]);
   const { accommodation, galleryImages } = particularPackage;

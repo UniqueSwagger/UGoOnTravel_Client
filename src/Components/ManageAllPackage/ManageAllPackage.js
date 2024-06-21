@@ -12,7 +12,9 @@ const ManageAllPackage = () => {
   //getting all booking info
   useEffect(() => {
     axios
-      .get("https://ug-o-on-travel-server.vercel.app/bookingInfo")
+      .get("https://ug-o-on-travel-server.vercel.app/bookingInfo",{
+        timeout: 5000,
+      })
       .then((res) => setRegisteredBookings(res.data));
   }, [updated, updatedBooking]);
   const handleDelete = (id) => {

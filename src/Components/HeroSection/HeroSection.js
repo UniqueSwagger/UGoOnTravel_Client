@@ -9,7 +9,7 @@ const HeroSection = () => {
         <h1 style={{ color: "##ebebeb" }} className="display-2 fw-bold ">
           Hotel, Resort & Experiences
         </h1>
-        <p className="text-muted w-75 fs-4 py-3">
+        <p className=" w-75 fs-4 py-3 text-white-50">
           Accompanying us, you have a trip full of experiences. With
           UGoOnTravel, booking accommodation, resort villas, hotels
         </p>

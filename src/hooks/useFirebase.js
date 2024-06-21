@@ -25,23 +25,21 @@ const useFirebase = () => {
   const githubProvider = new GithubAuthProvider();
 
   // handle sign up
-  const handleSignup = (email, password, name) => {
-    return createUserWithEmailAndPassword(auth, email, password).then(() => {
-      const newUser = { email, displayName: name };
-      setCurrentUser(newUser);
-      //save user to our database
-      saveUser(email, name, "post");
-      //send user to the firebase database
-      updateProfile(auth.currentUser, {
-        displayName: name,
+  const handleSignup = async (email, password, name) => {
+    await createUserWithEmailAndPassword(auth, email, password);
+    const newUser = { email, displayName: name };
+    setCurrentUser(newUser);
+    //save user to our database
+    saveUser(email, name, "post");
+    //send user to the firebase database
+    updateProfile(auth.currentUser, {
+      displayName: name,
+    })
+      .then(() => {
       })
-        .then(() => {
-          //updated user to the firebase database
-        })
-        .catch((error) => {
-          console.log(error.message);
-        });
-    });
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   //handle sign in
@@ -50,21 +48,19 @@ const useFirebase = () => {
   };
 
   //handle google sign in
-  const handleGoogleSignIn = () => {
-    return signInWithPopup(auth, googleProvider).then((result) => {
-      //save user to our database
-      setCurrentUser(result.user);
-      saveUser(result.user.email, result.user.displayName, "put");
-    });
+  const handleGoogleSignIn = async () => {
+    const result = await signInWithPopup(auth, googleProvider);
+    //save user to our database
+    setCurrentUser(result.user);
+    saveUser(result.user.email, result.user.displayName, "put");
   };
 
   //handle github sign in
-  const handleGithubSignIn = () => {
-    return signInWithPopup(auth, githubProvider).then((result) => {
-      //save user to our database
-      setCurrentUser(result.user);
-      saveUser(result.user.email, result.user.displayName, "put");
-    });
+  const handleGithubSignIn = async () => {
+    const result = await signInWithPopup(auth, githubProvider);
+    //save user to our database
+    setCurrentUser(result.user);
+    saveUser(result.user.email, result.user.displayName, "put");
   };
 
   //handle logout
@@ -106,7 +102,8 @@ const useFirebase = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios
+    if(currentUser){
+      axios
       .get(
         `https://ug-o-on-travel-server.vercel.app/users/${currentUser?.email}`
       )
@@ -121,7 +118,9 @@ const useFirebase = () => {
           }
         }, 5000);
       });
+    }
   }, [currentUser?.email, admin]);
+
 
   return {
     handleSignup,

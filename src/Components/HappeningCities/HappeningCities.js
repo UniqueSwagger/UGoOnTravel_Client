@@ -10,7 +10,7 @@ const HappeningCities = () => {
       </div>
       <div className="col-lg-5 ps-5 col-12">
         <div>
-          <p className="fs-5 text-muted">BENEFITS</p>
+          <p className="fs-5 ">BENEFITS</p>
           <h2>Happening Cities</h2>
         </div>
         <div className="my-5">
@@ -18,7 +18,7 @@ const HappeningCities = () => {
             Advertising
           </Badge>
           <h4>Cost-effective advertising</h4>
-          <p className="fs-5 text-muted">
+          <p className="fs-5 text-white-50">
             With a free listing, you can advertise your rental with no upfront
             costs
           </p>
@@ -28,7 +28,7 @@ const HappeningCities = () => {
             Exposure
           </Badge>
           <h4>Reach millions with UGoOnTravel</h4>
-          <p className="fs-5 text-muted">
+          <p className="fs-5 text-white-50">
             Millions of people are searching for unique places to stay around
             the world
           </p>
@@ -38,7 +38,7 @@ const HappeningCities = () => {
             Secure
           </Badge>
           <h4>Secure and simple</h4>
-          <p className="fs-5 text-muted">
+          <p className="fs-5 text-white-50">
             A Holiday Lettings listing gives you a secure and easy way to take
             bookings and payments online
           </p>

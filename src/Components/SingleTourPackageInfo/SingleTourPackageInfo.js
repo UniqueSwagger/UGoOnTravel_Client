@@ -45,7 +45,9 @@ const SingleTourPackageInfo = (props) => {
   //getting all booking info of the user
   useEffect(() => {
     axios
-      .get(`https://ug-o-on-travel-server.vercel.app/bookingInfo/${email}`)
+      .get(`https://ug-o-on-travel-server.vercel.app/bookingInfo/${email}`,{
+        timeout: 5000, 
+      })
       .then((res) => setUserRegisteredBookings(res.data));
   }, [email]);
 
@@ -119,7 +121,7 @@ const SingleTourPackageInfo = (props) => {
           </div>
           <div className="d-flex  align-items-center mt-3">
             <div className="me-4">
-              <p className="text-muted mt-auto">
+              <p className=" mt-auto">
                 <i className="fas fa-map-marker-alt"></i> {location}
               </p>
             </div>
@@ -127,11 +129,11 @@ const SingleTourPackageInfo = (props) => {
               <p>
                 <i style={{ color: "#EF4444" }} className="fas fa-star"></i>{" "}
                 <span className="fw-bold">{rating}</span>{" "}
-                <span className="text-muted">({rater})</span>
+                <span className="">({rater})</span>
               </p>
             </div>
           </div>
-          <p className="text-muted fs-4">{about}</p>
+          <p className=" fs-4">{about}</p>
           <div className="d-flex flex-column flex-lg-row align-items-center justify-content-around mt-5">
             <div>
               <h5>
@@ -162,14 +164,14 @@ const SingleTourPackageInfo = (props) => {
             <div>
               <p>
                 <span className="fw-bold fs-5 ">${pricePerNight}</span>
-                <span className="text-muted"> /night</span>
+                <span className=""> /night</span>
               </p>
             </div>
             <div>
               <p>
                 <i style={{ color: "#EF4444" }} className="fas fa-star"></i>{" "}
                 <span className="fw-bold">{rating}</span>{" "}
-                <span className="text-muted">({rater})</span>
+                <span className="">({rater})</span>
               </p>
             </div>
           </div>
@@ -195,7 +197,7 @@ const SingleTourPackageInfo = (props) => {
                 placeholder="Your Email"
                 {...register("email")}
               />
-              <Form.Text className="text-muted">
+              <Form.Text className="">
                 We'll never share your email with anyone else.
               </Form.Text>
             </Form.Group>
@@ -250,13 +252,13 @@ const SingleTourPackageInfo = (props) => {
                 {...register("message")}
               />
             </Form.Group>
-            <div className="d-flex justify-content-between text-muted  my-3 fs-5">
+            <div className="d-flex justify-content-between   my-3 fs-5">
               <span>
                 ${pricePerNight} x {stayNights} night
               </span>
               <span>${totalCost}</span>
             </div>
-            <div className="d-flex justify-content-between text-muted my-3 fs-5">
+            <div className="d-flex justify-content-between  my-3 fs-5">
               <span>Service charge</span>
               <span>${serviceCharge}</span>
             </div>

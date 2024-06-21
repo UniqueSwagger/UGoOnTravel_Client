@@ -9,11 +9,23 @@ import "./TourPackage.css";
 const TourPackage = () => {
   const history = useHistory();
   const [places, setPlaces] = useState([]);
+  const [error, setError] = useState();
+
   useEffect(() => {
-    axios
-      .get("https://ug-o-on-travel-server.vercel.app/packages")
-      .then((res) => setPlaces(res.data));
-  }, [places]);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("https://ug-o-on-travel-server.vercel.app/packages", {
+          timeout: 10000,
+        });
+        setPlaces(response.data);
+      } catch (error) {
+        console.log('Error fetching data:', error);
+        setError(error);
+      }
+    };
+
+    fetchData();
+  }, []);
   const handleBookNow = (id) => {
     history.push(`/packages/${id}`);
   };
@@ -26,7 +38,7 @@ const TourPackage = () => {
         >
           <div className="text-center my-5">
             <h1>Featured places to stay</h1>
-            <p className="text-muted w-50 mx-auto  fs-4 py-3">
+            <p className=" w-50 mx-auto  fs-4 py-3 text-white-50">
               Popular places to stay that UGoOnTravel recommends for you. Select
               Your Best Package For Your Travel
             </p>
@@ -48,7 +60,7 @@ const TourPackage = () => {
                 return (
                   <Col key={_id}>
                     <Card
-                      className="h-100"
+                      className="h-100 "
                       style={{
                         background: "rgb(17 24 39)",
                         borderRadius: "45px",
@@ -61,35 +73,35 @@ const TourPackage = () => {
                         src={bannerImage}
                       />
                       <Card.Body className="d-flex flex-column">
-                        <p className="text-muted">
+                        <p className="text-white-50">
                           Entire Cabin - {bedrooms} bedrooms
                         </p>
-                        <Card.Title className="fs-4">
+                        <Card.Title className="fs-4 text-white-50">
                           {accommodation}
                         </Card.Title>
-                        <Card.Text className="text-muted fs-5">
+                        <Card.Text className=" fs-5 text-white-50">
                           {shortDescription}
                         </Card.Text>
-                        <p className="text-muted mt-auto">
+                        <p className=" mt-auto text-white-50">
                           <i className="fas fa-map-marker-alt"></i> {location}
                         </p>
                         <div className="d-flex align-items-center justify-content-between mt-auto">
                           <div>
                             <p>
-                              <span className="fw-bold fs-5 ">
+                              <span className="fw-bold fs-5 text-white-50">
                                 ${pricePerNight}
                               </span>
-                              <span className="text-muted"> /night</span>
+                              <span className="text-white-50"> /night</span>
                             </p>
                           </div>
                           <div>
                             <p>
                               <i
                                 style={{ color: "#EF4444" }}
-                                className="fas fa-star"
+                                className="fas fa-star text-white-50"
                               ></i>{" "}
-                              <span className="fw-bold">{rating}</span>{" "}
-                              <span className="text-muted">({rater})</span>
+                              <span className="fw-bold text-white-50">{rating}</span>{" "}
+                              <span className="text-white-50">({rater})</span>
                             </p>
                           </div>
                         </div>
